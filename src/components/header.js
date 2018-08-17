@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../images/LOGO_Alpha_Small-TreasureTones.png'
 import { Link } from 'gatsby'
 
 const Header = ({ siteTitle }) => (
@@ -6,8 +7,13 @@ const Header = ({ siteTitle }) => (
     style={{
       background: '#7a0515',
       marginBottom: '1.45rem',
+      position: 'fixed',
+      width: '100%',
+      zIndex: 90,
+      height: 100,
     }}
   >
+
     <div
       style={{
         margin: '0 auto',

@@ -5,14 +5,16 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "next",
-    "gatsby-plugin-react-helmet": "next",
     "gatsby-image": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-sharp": "next",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
-    "gatsby-plugin-sharp": "next",
-    "gatsby-source-filesystem": "next",
-    "gatsby-transformer-sharp": "next"
+    "react-script-tag": "^1.1.2",
+    "react-youtube": "^7.6.0"
   },
   "keywords": [
     "gatsby"
