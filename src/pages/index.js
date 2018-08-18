@@ -1,11 +1,10 @@
 import React from 'react'
 import { push } from 'gatsby'
 import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
-import ScriptTag from 'react-script-tag'
-import YouTube from 'react-youtube'
-
+import { Link, graphql } from 'gatsby'
+import ResponsiveEmbed from 'react-responsive-embed'
 import Layout from '../components/layout'
+import EventCalendar from '../components/EventCalender'
 
 const IndexPage = ({ data }) => {
   console.log('INDEX', data)
@@ -19,53 +18,60 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div
         style={{
-          maxWidth: 300,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          cursor: 'pointer',
-        }}
-        onClick={() => {
-          push('/about/')
+          display: 'flex',
+          justifyContent: 'center',
+          margin: 20,
         }}
       >
-        <Img fluid={data.file.childImageSharp.fluid} />
-        <br />
-        <h4 style={{ textAlign: 'center' }}>
-          Classic Rocksteady, Reggae & Ska
-        </h4>
-        <h4 style={{ textAlign: 'center', color: '#7a0515' }}>About Us</h4>
+        <div
+          style={{
+            margin: 16,
+            width: '50%',
+            minWidth: 100,
+            maxWidth: 200,
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            push('/about/')
+          }}
+        >
+          <Img fluid={data.file.childImageSharp.fluid} />
+        </div>
+        <div
+          style={{
+            margin: 16,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <h4 style={{ textAlign: 'center' }}>
+            Classic Rocksteady, Reggae & Ska
+          </h4>
+          <Link to="/about">
+            <h4 style={{ color: '#7a0515' }}>About Us</h4>
+          </Link>
+        </div>
       </div>
       <br />
       <div
         style={{
-          display: 'flex',
+          minWidth: 320,
+          width: '100%',
+          padding: 20,
+          borderRadius: 12,
+          backgroundColor: 'lightgray',
+          display: 'inline-flex',
           flexWrap: 'wrap',
           justifyContent: 'space-around',
+          alignContent: 'center',
         }}
       >
-        <div>
-          <YouTube videoId="pPkiTV3qq0w" opts={opts} />
+        <div style={{ alignSelf: 'center', minWidth: 100, width: 600 }}>
+          <ResponsiveEmbed src="https://www.youtube.com/embed/pPkiTV3qq0w" />
         </div>
-
-        <div style={{ width: 600, minWidth: 200 }}>
-          <h2>See Us Live</h2>
-          <ScriptTag
-            charSet="utf-8"
-            src="https://widget.bandsintown.com/main.min.js"
-          />
-          <a
-            className="bit-widget-initializer"
-            data-artist-name="Swans"
-            data-display-local-dates="false"
-            data-auto-style="false"
-            data-text-color="#000000"
-            data-link-color="#7a0515"
-            data-popup-background-color="#FFFFFF"
-            data-background-color="#FFFFFF"
-            data-display-limit="15"
-            data-link-text-color="#FFFFFF"
-          />
-        </div>
+        <EventCalendar />
       </div>
     </Layout>
   )
@@ -75,7 +81,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    file(relativePath: { regex: "/LOGO-TTCigarettepack/" }) {
+    file(relativePath: { regex: "/LOGO_Alpha-TreasureTones/" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid_tracedSVG

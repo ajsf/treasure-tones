@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../images/LOGO_Alpha_Small-TreasureTones.png'
 import { Link } from 'gatsby'
 
 const Header = ({ siteTitle }) => (
